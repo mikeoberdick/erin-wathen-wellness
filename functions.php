@@ -1,7 +1,7 @@
 
 <?php
 
-// *** Theme Setup *** \\
+//////////////////////////////////////////////////////////////// *** Theme Setup *** \\
 
 function understrap_remove_scripts() {
     wp_dequeue_style( 'understrap-styles' );
@@ -37,32 +37,23 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 add_filter('widget_text', 'do_shortcode');
 
 
-
-
-
-// *** Theme Styles *** \\
+//////////////////////////////////////////////////////////////// *** Theme Styles *** \\
 
 function d4tw_enqueue_styles () {
-    wp_enqueue_style( 'Open Sans', 'https://fonts.googleapis.com/css?family=Open+Sans' );
-    wp_enqueue_style( 'AOS CSS', get_stylesheet_directory_uri() . '/aos/aos.css' );
+    wp_enqueue_style( 'Google Fonts', 'https://fonts.googleapis.com/css?family=Leckerli+One|Roboto' );
+    wp_enqueue_style( 'Owl Slider CSS', get_stylesheet_directory_uri() . '/owlcarousel/owl.carousel.min.css' );
+    wp_enqueue_style( 'Owl Slider Nav CSS', get_stylesheet_directory_uri() . '/owlcarousel/owl.theme.default.min.css' );
 }
 add_action('wp_enqueue_scripts', 'd4tw_enqueue_styles');
 
 
-
-
-
-// *** Theme Scripts *** \\
+//////////////////////////////////////////////////////////////// *** Theme Scripts *** \\
 
 function d4tw_enqueue_scripts () {
    wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
-   wp_enqueue_script( 'AOS JS', get_stylesheet_directory_uri() . '/aos/aos.js', array('jquery'), '1.0.0', true );
+   wp_enqueue_script( 'Owl Slider JS', get_stylesheet_directory_uri() . '/owlcarousel/owl.carousel.min.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'd4tw_enqueue_scripts' );
-
-
-
-
 
 // *** Advanced Custom Fields *** \\
 
@@ -93,9 +84,6 @@ function my_acf_google_map_api( $api ){
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-
-
 
 
 // *** D4TW Custom Dashboard *** \\
@@ -162,19 +150,13 @@ function d4tw_admin_css() {
 add_action('admin_head', 'd4tw_admin_css');
 
 
-
-
-
 // *** Custom Menus *** \\
 
 
 
-
-
-
 // *** Template Tags *** \\
-
-
+//Add the press logo image size
+add_image_size( 'press-logo', 250, 200 ); // Hard crop center center
 
 
 
@@ -238,18 +220,6 @@ function d4tw_sidebars() {
         'class'         => 'footer_3',
         'name'          => 'Footer 3',
         'description'   => 'This widget area will appear in the third position of the footer.',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h5 class="widgettitle">',
-        'after_title'   => '</h5>',
-    );
-    register_sidebar( $args );
-
-    $args = array(
-        'id'            => 'footer_4',
-        'class'         => 'footer_4',
-        'name'          => 'Footer 4',
-        'description'   => 'This widget area will appear in the fourth position of the footer.',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h5 class="widgettitle">',

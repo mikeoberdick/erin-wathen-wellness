@@ -6,15 +6,14 @@
 // Just add your color code here, compile the theme.scss file to change this color everywhere
 
 //Colors
-$brand-primary:         #f58634; // Orange
-$brand-secondary:	#000000; // Brand Secondary Color
-$brand-tertiary:	#ff0000; // Brand Tertiary Color
-$body-font-color:	#333;
+$brand-primary:   #1a92ba; // Blue
+$brand-secondary:	#adc01c; // Green
+$body-font-color:	#808080;
 
 //Fonts
-$header-font:       'Fjalla One', sans-serif;
-$body-font:         'Open Sans', sans-serif;
-$nav-font:          'Roboto', sans-serif;
+$header-font:     'Leckerli One', cursive;
+$body-font:       'Roboto', sans-serif;
+$nav-font:        'Roboto', sans-serif;
 
 //Fluid Typography Variables
 $min_width: 320px;
@@ -25,10 +24,6 @@ $max_font: 18px;
 // Fluid Header Variables
 $mod_1: 1.2; // mobile
 $mod_2: 1.5; // desktop
-
-
-
-
 
 //Mix-Ins
 
@@ -51,6 +46,11 @@ $mod_2: 1.5; // desktop
   -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
 	-moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
 	box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);
+}
+
+//Gradient
+@mixin gradient {
+  background: radial-gradient(circle farthest-side at center center, rgb(255, 255, 255) 0%, rgba(26, 146, 186, 0.35) 100%);
 }
 
 //Border Radius

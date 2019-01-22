@@ -42,6 +42,25 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+		<div id="topHeader">
+			<div class="container">
+				<div class="row">
+					<span id = "phone"><a href = "tel:844-513-3997"><i class="fa fa-phone" aria-hidden="true"></i></a><?php the_field('phone_number', 'option'); ?></span>
+					<div>
+						<ul id="links" class = "list-unstyled">
+							<li><a target = "_blank" href = "mailto:<?php the_field('email', 'option'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('facebook', 'option'); ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('twitter', 'option'); ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('instagram', 'option'); ?>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('youtube', 'option'); ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('pinterest', 'option'); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a target = "_blank" href = "<?php the_field('linked_in', 'option'); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div><!-- .row -->	
+			</div>
+			
+		</div><!-- #topHeader -->
 
 		<nav class="navbar navbar-expand-md">
 
@@ -52,7 +71,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</button>
 					
 				<a rel = "home" class="navbar-brand" data-itemprop="url" title="<?php echo esc_attr( get_bloginfo( 'name') ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<img id = "headerLogo" src = "<?php the_field('company_logo', 'option'); ?>" alt = "<?php echo esc_attr( get_bloginfo( 'name') ); ?>">
+					<img id = "headerLogo" src = "<?php the_field('logo', 'option'); ?>" alt = "<?php echo esc_attr( get_bloginfo( 'name') ); ?>">
 				</a>
 
 				<!-- The WordPress Menu goes here -->
