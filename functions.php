@@ -150,14 +150,47 @@ function d4tw_admin_css() {
 add_action('admin_head', 'd4tw_admin_css');
 
 
-// *** Custom Menus *** \\
-
-
 
 // *** Template Tags *** \\
 //Add the press logo image size
 add_image_size( 'press-logo', 250, 200 ); // Hard crop center center
 
+//Custom excerpts
+if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+    function understrap_all_excerpts_get_more_link( $post_excerpt ) {
+            $post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-primary" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More',
+            'understrap' ) . '</a></p>';
+        return $post_excerpt;
+    }
+}
+
+//Custom single post page navigation
+
+if ( !function_exists ( 'understrap_post_nav' ) ) {
+    function understrap_post_nav() {
+        // Don't print empty markup if there's nowhere to navigate.
+        $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+        $next     = get_adjacent_post( false, '', false );
+        if ( ! $next && ! $previous ) {
+            return;
+        }
+        ?>
+        <nav class="container navigation post-navigation">
+            <h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'understrap' ); ?></h2>
+            <div class="row nav-links justify-content-between">
+                <?php
+                if ( get_previous_post_link() ) {
+                    previous_post_link( '<span class="nav-previous">%link</span>', _x( '<i class="fa fa-arrow-circle-left mr-1" aria-hidden="true"></i>&nbsp;%title', 'Previous post link', 'understrap' ) );
+                }
+                if ( get_next_post_link() ) {
+                    next_post_link( '<span class="nav-next">%link</span>', _x( '%title&nbsp;<i class="fa fa-arrow-circle-right ml-1" aria-hidden="true"></i>', 'Next post link', 'understrap' ) );
+                }
+                ?>
+            </div><!-- .nav-links -->
+        </nav><!-- .navigation -->
+        <?php
+    }
+}
 
 
 // *** User Tweaks & Permissions *** \\
@@ -169,6 +202,17 @@ function d4tw_disable_admin_bar() {
     if ( !current_user_can ( 'administrator' ) ) {
         show_admin_bar(false);
     }
+}
+
+// Enable the use of shortcodes within widgets.
+add_filter( 'widget_text', 'do_shortcode' ); 
+
+// Assign the tag for our shortcode and identify the function that will run. 
+add_shortcode( 'ss_directory', 'd4tw_stylesheet_directory_uri' );
+
+// Define function 
+function d4tw_stylesheet_directory_uri() {
+    return get_stylesheet_directory_uri();
 }
 
 

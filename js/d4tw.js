@@ -49,6 +49,8 @@ $('#videoSlider').owlCarousel({
 	navText: ["<i class='fa fa-arrow-circle-left' aria-hidden='true'></i>","<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>"]
 });
 
+//
+
 //YouTube API call
 //if (top.location.pathname === 'http://eww.d4tw/videos/') {
 	$.get(
@@ -58,7 +60,6 @@ $('#videoSlider').owlCarousel({
 			key: 'AIzaSyD0Fi22hUGXGtDlNdn6EiRrdzX_IC43kqI'},
 		function(data) {
 			$.each(data.items, function(i, item) {
-				console.log(item);
 				pid = item.contentDetails.relatedPlaylists.uploads;
 				getVids(pid);
 			})
@@ -69,23 +70,30 @@ $('#videoSlider').owlCarousel({
 		$.get(
 		"https://www.googleapis.com/youtube/v3/playlistItems",{
 			part: 'snippet',
-			maxResults: 4,
+			maxResults: 5,
 			playlistId: pid,
 			key: 'AIzaSyD0Fi22hUGXGtDlNdn6EiRrdzX_IC43kqI'},
 		function(data) {
 			var output;
 			$.each(data.items, function(i, item) {
 				console.log(item);
+				thumb = item.snippet.thumbnails.medium.url;
 				videoTitle = item.snippet.title;
 				videoId = item.snippet.resourceId.videoId;
-				output = '<li><iframe src="//www.youtube.com/embed/'+videoId+'"></iframe></li>';
+				output = '<div class = "video"><a data-id="'+videoId+'"><img class = "mb-3" src="'+thumb+'"><h5>'+videoTitle+'</h5></a></div>';
 
-				//Append to the results container
-				$('#results').append(output);
+				// adds an item before the first item
+				$('#videoSlider').trigger('add.owl.carousel', output).trigger('refresh.owl.carousel');
 				})
 			}
 		);
 	}
-//}
-	
+
+	//Functionality for videos page to allow click on carousel item and load into main player section
+	$('#videoSlider').on('click', '.video a', function(){
+    var id = $(this).data("id");
+    console.log(id);
+    $("#featuredVideo > iframe").attr("src","https://www.youtube.com/embed/"+id+"?rel=&autoplay=1");
+	});
+
 });

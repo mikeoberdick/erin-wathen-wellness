@@ -23,15 +23,31 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<div id = "footer1" class = "col-lg-6">
 			<?php dynamic_sidebar('footer_1'); ?>
-		</div>
+		</div><!-- #footer1 -->
 		
-		<div id = "footer2" class = "col-lg-3">
-			<?php dynamic_sidebar('footer_2'); ?>
-		</div>
+		<div id = "footer2" class = "col-lg-4">
+			<h5 class="widgettitle">Latest Blog Post & Tips</h5>
+					<?php
+						$args = array( 'numberposts' => '3' );
+						$posts = wp_get_recent_posts( $args );
+						foreach( $posts as $post ) {
+							//vars
+								$thumb = get_the_post_thumbnail( $post['ID'], 'thumbnail');
+								$title = $post['post_title'];
+								$link = get_permalink($post['ID']);
+							?>
+							<div class = "footer_post">
+								<?php echo $thumb; ?>
+								<h6 clas = "mb-0"><?php echo $title; ?></h6>
+								<a href="<?php echo $link; ?>"><small>READ MORE</small></a>
+							</div>
+						<?php }
+							wp_reset_query(); ?>
+		</div><!-- #footer2 -->
 		
-		<div id = "footer3" class = "col-lg-3">
+		<div id = "footer3" class = "col-lg-">
 			<?php dynamic_sidebar('footer_3'); ?>
-		</div>
+		</div><!-- #footer3 -->
 	</div><!-- #footerWidgets -->
 
 	</div><!-- .container -->

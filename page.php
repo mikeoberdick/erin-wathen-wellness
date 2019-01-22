@@ -9,60 +9,39 @@
  * @package understrap
  */
 
-get_header();
+get_header(); ?>
 
-?>
-
-<?php if ( !is_front_page() ) { ?>
-	<?php if( has_post_thumbnail() ) { ?>
-		<?php $bg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
-		<header class = "container-fluid pageHeader mb-3" style = "background-image: url('<?php echo $bg[0] ?>')">
-		<?php } else { ?>
-			<header class = "container-fluid pageHeader mb-3" style = "background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/default_page_header.png')">
-		<?php } ?>
-		<div class="container-fluid p-0">
-			<div class="row">
-				<div class = "col-lg-4 titleWrapper">
-					<?php if ( get_field ('page_header') ) { ?>
-					<h3 class="pageTitle"><?php the_field('page_header'); ?></h3>
-				<?php } else { ?>
-					<h3 class="pageTitle"><?php the_title(); ?></h3>
-				<?php } ?>
-				</div><!-- .col-lg-4 .titleWrapper -->
-			</div><!-- .row -->
-		</div><!-- .container-fluid -->
-	</header><!-- .pageHeader -->
-
-<div class="container-fluid">
-	<div class="container">
-	<?php
-	if ( function_exists('yoast_breadcrumb') ) {
-	  yoast_breadcrumb( '<p id="breadcrumbs" class = "mb-5">','</p>' );
-	}
-	?>		
-	</div><!-- .container -->
-</div><!-- .container-fluid -->
-
-<?php } //end the homepage conditional ?>
+<?php get_template_part( 'template-parts/content', 'page_title' ) ?>
+<?php get_template_part( 'template-parts/content', 'breadcrumbs' ) ?>
 
 <main class="site-main" id="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
 
 		if( is_page( 'home' ) ) {
-			get_template_part( 'template-parts/content', 'home' );
+			get_template_part( 'template-parts/page', 'home' );
 		} elseif ( is_page( 'about' ) ) {
-			get_template_part( 'template-parts/content', 'about' );
+			get_template_part( 'template-parts/page', 'about' );
 		} elseif ( is_page( 'videos' ) ) {
-			get_template_part( 'template-parts/content', 'videos' );
-		}
-
-		else {
+			get_template_part( 'template-parts/page', 'videos' );
+		} elseif ( is_page( 'contact' ) ) {
+			get_template_part( 'template-parts/page', 'contact' );
+		} elseif ( is_page( 'press' ) ) {
+			get_template_part( 'template-parts/page', 'press' );
+		} elseif ( is_page( 'book' ) ) {
+			get_template_part( 'template-parts/page', 'book' );
+		} elseif ( is_page( 'services' ) ) {
+			get_template_part( 'template-parts/page', 'services' );
+		} else {
 		   get_template_part( 'loop-templates/content', 'page' );
 		}
 
 		?>
 	<?php endwhile; // end of the loop. ?>
 </main><!-- #main -->
+
+<?php if ( !is_front_page() && !is_page('contact') ) {
+	get_template_part( 'template-parts/content', 'ctaForm' );
+} ?>
 
 <?php get_footer(); ?>
