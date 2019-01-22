@@ -9,7 +9,13 @@ $('#pressSlider').owlCarousel({
 	margin: 25,
 	loop: true,
 	dots: false,
-	autoPlay: true
+	autoplay: true,
+	slideTransition: 'linear',
+	autoplayTimeout: 4000,
+	autoplaySpeed: 4000,
+	autoplayHoverPause : false,
+	smartSpeed: 4000,
+	fluidSpeed: true,
 });
 
 //Homepage Testimonial Slider
@@ -49,8 +55,6 @@ $('#videoSlider').owlCarousel({
 	navText: ["<i class='fa fa-arrow-circle-left' aria-hidden='true'></i>","<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>"]
 });
 
-//
-
 //YouTube API call
 //if (top.location.pathname === 'http://eww.d4tw/videos/') {
 	$.get(
@@ -89,7 +93,13 @@ $('#videoSlider').owlCarousel({
 		);
 	}
 
-	//Functionality for videos page to allow click on carousel item and load into main player section
+//Load the first video into the featured player on page load
+$(window).on('load', function() {
+	var featureid = $('#videoSlider .video a').first().data('id');
+	$("#featuredVideo > iframe").attr("src","https://www.youtube.com/embed/"+featureid+"");
+});
+
+//Functionality for videos page to allow click on carousel item and load into main player section
 	$('#videoSlider').on('click', '.video a', function(){
     var id = $(this).data("id");
     console.log(id);
@@ -97,3 +107,4 @@ $('#videoSlider').owlCarousel({
 	});
 
 });
+

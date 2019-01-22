@@ -154,7 +154,7 @@ a {
 /*------------------------------------------------*/
 //GENERAL
 .pageHeader {
-	height: 200px;
+	height: 350px;
 	background-size: cover !important;
     background-position: center center !important;
     display: flex;
@@ -185,6 +185,7 @@ a {
 
 #breadcrumbs {
 	color: $brand-secondary;
+	font-size: .8rem;
 	a {
 		color: $brand-primary;
 	}
@@ -310,9 +311,10 @@ a {
 #videoSlider {
 	.owl-stage-outer {
 		.video {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
+			text-align: center;
+			h5 {
+				font-size: 1rem;
+			}
 			a {
 				cursor: pointer;
 			}
@@ -409,6 +411,34 @@ a {
 			}
 		}
 	}
+}
+
+//Book Page
+#bookDetails {
+	#buttons {
+		img {
+			width: 30%;
+		}
+		img:first-of-type {
+			margin-right: 25px;
+		}
+	}
+}
+
+.book-testimonial {
+	padding-bottom: 25px;
+    border-bottom: solid 1px #e0e0e0;
+    margin-bottom: 50px;
+
+    i {
+    	color: #ffce00;
+    	font-size: 20px;
+    }
+}
+.book-testimonial:last-of-type {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border: 0;
 }
 
 /*------------------------------------------------*/

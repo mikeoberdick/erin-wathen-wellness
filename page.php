@@ -11,27 +11,27 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/content', 'page_title' ) ?>
-<?php get_template_part( 'template-parts/content', 'breadcrumbs' ) ?>
+<?php get_template_part( 'template-parts/snippets/content', 'page_title' ) ?>
+<?php get_template_part( 'template-parts/snippets/content', 'breadcrumbs' ) ?>
 
 <main class="site-main" id="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
 
 		if( is_page( 'home' ) ) {
-			get_template_part( 'template-parts/page', 'home' );
+			get_template_part( 'template-parts/content/page', 'home' );
 		} elseif ( is_page( 'about' ) ) {
-			get_template_part( 'template-parts/page', 'about' );
+			get_template_part( 'template-parts/content/page', 'about' );
 		} elseif ( is_page( 'videos' ) ) {
-			get_template_part( 'template-parts/page', 'videos' );
+			get_template_part( 'template-parts/content/page', 'videos' );
 		} elseif ( is_page( 'contact' ) ) {
-			get_template_part( 'template-parts/page', 'contact' );
+			get_template_part( 'template-parts/content/page', 'contact' );
 		} elseif ( is_page( 'press' ) ) {
-			get_template_part( 'template-parts/page', 'press' );
+			get_template_part( 'template-parts/content/page', 'press' );
 		} elseif ( is_page( 'book' ) ) {
-			get_template_part( 'template-parts/page', 'book' );
+			get_template_part( 'template-parts/content/page', 'book' );
 		} elseif ( is_page( 'services' ) ) {
-			get_template_part( 'template-parts/page', 'services' );
+			get_template_part( 'template-parts/content/page', 'services' );
 		} else {
 		   get_template_part( 'loop-templates/content', 'page' );
 		}
@@ -41,7 +41,7 @@ get_header(); ?>
 </main><!-- #main -->
 
 <?php if ( !is_front_page() && !is_page('contact') ) {
-	get_template_part( 'template-parts/content', 'ctaForm' );
+	get_template_part( 'template-parts/snippets/content', 'ctaForm' );
 } ?>
 
 <?php get_footer(); ?>

@@ -1,3 +1,4 @@
+<?php if ( !is_front_page() ) { ?>
 <div class="container-fluid">
 	<div class="container">
 	<?php
@@ -7,3 +8,4 @@
 	?>		
 	</div><!-- .container -->
 </div><!-- .container-fluid -->
+<?php } ?>

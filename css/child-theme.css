@@ -10924,7 +10924,7 @@ a {
 /*----------------------[PAGES]-------------------*/
 /*------------------------------------------------*/
 .pageHeader {
-  height: 200px;
+  height: 350px;
   background-size: cover !important;
   background-position: center center !important;
   display: -webkit-box;
@@ -10952,7 +10952,8 @@ a {
     margin-bottom: 0; }
 
 #breadcrumbs {
-  color: #adc01c; }
+  color: #adc01c;
+  font-size: .8rem; }
   #breadcrumbs a {
     color: #1a92ba; }
   #breadcrumbs .breadcrumb_last {
@@ -11054,16 +11055,9 @@ a {
   border-radius: 10px; }
 
 #videoSlider .owl-stage-outer .video {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  text-align: center; }
+  #videoSlider .owl-stage-outer .video h5 {
+    font-size: 1rem; }
   #videoSlider .owl-stage-outer .video a {
     cursor: pointer; }
 
@@ -11149,6 +11143,25 @@ a {
       font-size: 35px;
       -webkit-transition: color 0.3s;
       transition: color 0.3s; }
+
+#bookDetails #buttons img {
+  width: 30%; }
+
+#bookDetails #buttons img:first-of-type {
+  margin-right: 25px; }
+
+.book-testimonial {
+  padding-bottom: 25px;
+  border-bottom: solid 1px #e0e0e0;
+  margin-bottom: 50px; }
+  .book-testimonial i {
+    color: #ffce00;
+    font-size: 20px; }
+
+.book-testimonial:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: 0; }
 
 /*------------------------------------------------*/
 /*--------------------[SIDEBAR]-------------------*/
