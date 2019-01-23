@@ -274,8 +274,64 @@ function d4tw_sidebars() {
 }
 add_action( 'widgets_init', 'd4tw_sidebars' );
 
-
-
-
-
-// *** WooCommerce *** \\
+// *** CUSTOM POST TYPES *** \\
+//Press custom post type
+add_action( 'init', 'press_post_type', 0 );
+function press_post_type() {
+// Set UI labels for Custom Post Type
+  $labels = array(
+    'name'                => 'Press',
+    'singular_name'       => 'Press',
+    'menu_name'           => 'Press',
+    'parent_item_colon'   => 'Parent Press',
+    'all_items'           => 'All Press',
+    'view_item'           => 'View Press',
+    'add_new_item'        => 'Add New Press',
+    'add_new'             => 'Add New',
+    'edit_item'           => 'Edit Press',
+    'update_item'         => 'Update Press',
+    'search_items'        => 'Search Press',
+    'not_found'           => 'No Press Found',
+    'not_found_in_trash'  => 'No Press Found in Trash',
+  );
+  
+// Set other options for Custom Post Type
+  $args = array(
+    'label'               => 'Press',
+    'description'         => 'Press',
+    'labels'              => $labels,
+    // Features this CPT supports in Post Editor
+    'supports'            => array( 'title', 'editor', 'page-attributes', 'thumbnail' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+  );
+  
+  // Registering your Custom Post Type
+  register_post_type( 'Press', $args );
+}
+//Create the Press Category Taxonomy
+add_action( 'init', 'create_press_cat_taxonomy' );
+function create_press_cat_taxonomy() {
+  $labels = array(
+    'add_new_item' => 'Add New Press Category',
+    'view_item' => 'View Press Category',
+    'edit_item' => 'Edit Press Category',
+    'update_item' => 'Update Press Category',
+  );
+  $args = array(
+    'label' => 'Press Categories',
+    'rewrite' => array( 'slug' => 'press-category' ),
+    'labels'            => $labels,
+  );
+  register_taxonomy( 'press-category', array( 'press' ), $args );
+}

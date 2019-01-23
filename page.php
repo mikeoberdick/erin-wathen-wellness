@@ -26,7 +26,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content/page', 'videos' );
 		} elseif ( is_page( 'contact' ) ) {
 			get_template_part( 'template-parts/content/page', 'contact' );
-		} elseif ( is_page( 'press' ) ) {
+		} elseif ( is_page( 'press-and-media' ) ) {
 			get_template_part( 'template-parts/content/page', 'press' );
 		} elseif ( is_page( 'book' ) ) {
 			get_template_part( 'template-parts/content/page', 'book' );
@@ -40,7 +40,7 @@ get_header(); ?>
 	<?php endwhile; // end of the loop. ?>
 </main><!-- #main -->
 
-<?php if ( !is_front_page() && !is_page('contact') ) {
+<?php if ( !is_front_page() && !is_page('contact') && !is_page('press') ) {
 	get_template_part( 'template-parts/snippets/content', 'ctaForm' );
 } ?>
 

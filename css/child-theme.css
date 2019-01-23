@@ -11163,6 +11163,56 @@ a {
   margin-bottom: 0;
   border: 0; }
 
+.page-id-11 #breadcrumbs {
+  margin-bottom: 1rem !important; }
+
+#mediaRequests {
+  padding: 50px;
+  text-align: center;
+  background: radial-gradient(circle farthest-side at center center, #fff 0, rgba(26, 146, 186, 0.35) 100%);
+  text-align: center; }
+  #mediaRequests i {
+    font-size: 32px; }
+
+.card {
+  padding-top: 25px; }
+  .card .cardTop {
+    padding-left: 25px;
+    padding-right: 25px; }
+    .card .cardTop i {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 15px;
+      color: #adc01c; }
+    .card .cardTop span {
+      font-weight: bold;
+      color: #1a92ba; }
+  .card .card-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 250px;
+    position: relative;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important; }
+    .card .card-body:before {
+      content: '';
+      display: block;
+      background: #000000b3;
+      height: 100%;
+      width: 100%;
+      position: absolute; }
+    .card .card-body h3 {
+      color: #fff;
+      z-index: 2; }
+
 /*------------------------------------------------*/
 /*--------------------[SIDEBAR]-------------------*/
 /*------------------------------------------------*/

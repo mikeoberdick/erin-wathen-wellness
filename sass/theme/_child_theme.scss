@@ -441,6 +441,64 @@ a {
 	border: 0;
 }
 
+//Press Page
+.page-id-11 {
+	#breadcrumbs {
+		margin-bottom: 1rem !important;
+	}
+}
+
+#mediaRequests {
+	padding: 50px;
+	text-align: center;
+	background: radial-gradient(circle farthest-side at center center,#fff 0,rgba(26,146,186,.35) 100%);
+    text-align: center;
+
+    i {
+    	font-size: 32px;
+    }
+}
+
+.card {
+	padding-top: 25px;
+	.cardTop {
+		padding-left: 25px;
+		padding-right: 25px;
+		i {
+			font-size: 32px;
+			display: block;
+			margin-bottom: 15px;
+			color: $brand-secondary;
+		}
+		span {
+			font-weight: bold;
+			color: $brand-primary;
+		}
+	}
+	.card-body {
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 250px;
+	    position: relative;
+	    background-size: cover !important;
+	    background-repeat: no-repeat !important;
+	    background-position: center center !important;
+	    &:before {
+			content: '';
+		    display: block;
+		    background: #000000b3;
+		    height: 100%;
+		    width: 100%;
+		    position: absolute;
+	    }
+	    h3 {
+	    	color: #fff;
+	    	z-index: 2;
+	    }
+	}
+}
+
 /*------------------------------------------------*/
 /*--------------------[SIDEBAR]-------------------*/
 /*------------------------------------------------*/
