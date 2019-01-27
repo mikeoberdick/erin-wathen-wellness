@@ -11066,8 +11066,22 @@ a {
   top: 60px;
   width: 100%; }
   #videoSlider .owl-nav i {
-    font-size: 50px;
-    color: #1a92ba; }
+    font-size: 35px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: #1a92ba;
+    border-radius: 25px;
+    line-height: 50px; }
   #videoSlider .owl-nav .owl-prev, #videoSlider .owl-nav .owl-next {
     position: absolute; }
   #videoSlider .owl-nav .owl-prev {
@@ -11364,3 +11378,6 @@ a {
 /*------------------------------------------------*/
 .hidden {
   display: none; }
+
+.show {
+  display: block; }

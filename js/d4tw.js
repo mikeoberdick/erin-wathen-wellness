@@ -25,7 +25,8 @@ $('#testimonialSlider').owlCarousel({
 	items: 2,
     slideBy: 'page',
     onDrag: onDrag.bind(transient),
-    onDragged: onDragged.bind(transient)
+    onDragged: onDragged.bind(transient),
+
 });
 
 function onDrag(event) {
@@ -45,18 +46,10 @@ function onDragged(event) {
   }
 }
 
-//Video page YouTube video carousel
-$('#videoSlider').owlCarousel({
-	items: 4,
-	margin: 25,
-	nav: true,
-	dots: false,
-	navElement: 'div',
-	navText: ["<i class='fa fa-arrow-circle-left' aria-hidden='true'></i>","<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>"]
-});
+//Declare video as a global variable
+var video = {};
 
-//YouTube API call
-//if (top.location.pathname === 'http://eww.d4tw/videos/') {
+//YouTube Initial API call to get Playlist ID NEED TO CREATE CONDITIONAL TO ONLY RUN ON VIDEOS PAGE
 	$.get(
 		"https://www.googleapis.com/youtube/v3/channels",{
 			part: 'contentDetails',
@@ -64,8 +57,8 @@ $('#videoSlider').owlCarousel({
 			key: 'AIzaSyD0Fi22hUGXGtDlNdn6EiRrdzX_IC43kqI'},
 		function(data) {
 			$.each(data.items, function(i, item) {
-				pid = item.contentDetails.relatedPlaylists.uploads;
-				getVids(pid);
+				video.pid = item.contentDetails.relatedPlaylists.uploads;
+				getVids(video.pid);
 			})
 		}
 	);
@@ -79,8 +72,8 @@ $('#videoSlider').owlCarousel({
 			key: 'AIzaSyD0Fi22hUGXGtDlNdn6EiRrdzX_IC43kqI'},
 		function(data) {
 			var output;
+			video.token = data.nextPageToken;
 			$.each(data.items, function(i, item) {
-				console.log(item);
 				thumb = item.snippet.thumbnails.medium.url;
 				videoTitle = item.snippet.title;
 				videoId = item.snippet.resourceId.videoId;
@@ -92,6 +85,53 @@ $('#videoSlider').owlCarousel({
 			}
 		);
 	}
+
+//Video page YouTube video carousel
+var owl = $('#videoSlider');
+owl.owlCarousel({
+	items: 4,
+	margin: 25,
+	nav: true,
+	dots: false,
+	navElement: 'div',
+	navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>","<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
+	onTranslated: loadMoreVids
+});
+
+function loadMoreVids(event) {
+//vars
+	var element   = event.target;         // DOM element, in this example .owl-carousel
+    var items     = event.item.count;     // Number of items
+    var item      = event.item.index + 1;     // Position of the current item
+
+    console.log('the current slide is '+item+ 'out of '+items);
+
+    if (item === (items - 3)) {
+
+	$.get(
+	"https://www.googleapis.com/youtube/v3/playlistItems",{
+		part: 'snippet',
+		maxResults: 5,
+		playlistId: video.pid,
+		key: 'AIzaSyD0Fi22hUGXGtDlNdn6EiRrdzX_IC43kqI',
+		pageToken: video.token
+	},
+	function(data) {
+		var output;
+		video.token = data.nextPageToken;
+		$.each(data.items, function(i, item) {
+			thumb = item.snippet.thumbnails.medium.url;
+			videoTitle = item.snippet.title;
+			videoId = item.snippet.resourceId.videoId;
+			output = '<div class = "video"><a data-id="'+videoId+'"><img class = "mb-3" src="'+thumb+'"><h5>'+videoTitle+'</h5></a></div>';
+
+			// adds an item before the first item
+			$('#videoSlider').trigger('add.owl.carousel', output).trigger('refresh.owl.carousel');
+			})
+		}
+	);
+	} //end the conditional
+}
 
 //Load the first video into the featured player on page load
 $(window).on('load', function() {

@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/snippets', 'page_title' ) ?>
-<?php get_template_part( 'template-parts/snippets', 'breadcrumbs' ) ?>
+<?php get_template_part( 'template-parts/snippets/content', 'page_title' ) ?>
+<?php get_template_part( 'template-parts/snippets/content', 'breadcrumbs' ) ?>
 
 <div id="content" tabindex="-1">
 	<div class="container">

@@ -325,8 +325,16 @@ a {
 		top: 60px;
 		width: 100%;
 		i {
-			font-size: 50px;
-			color: $brand-primary;
+			font-size: 35px;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    width: 50px;
+		    height: 50px;
+		    color: #fff;
+		    background: $brand-primary;
+		    border-radius: 25px;
+		    line-height: 50px;
 		}
 		.owl-prev, .owl-next {
 			position: absolute;
@@ -495,6 +503,7 @@ a {
 	    h3 {
 	    	color: #fff;
 	    	z-index: 2;
+
 	    }
 	}
 }
@@ -703,4 +712,8 @@ a {
 
 .hidden {
 	display: none;
+}
+
+.show {
+	display: block;
 }
