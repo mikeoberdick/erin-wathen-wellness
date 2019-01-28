@@ -10,7 +10,7 @@
 	</div><!-- .container -->
 </section>
 
-<section class = "mb-5">
+<section id = "pressPosts" class = "mb-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
