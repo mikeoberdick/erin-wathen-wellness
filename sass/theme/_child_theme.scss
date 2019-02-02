@@ -19,7 +19,6 @@ html {
 h1, h2, h3, h4, h5 {
 	color: $brand-primary;
 	font-family: $header-font;
-	margin-bottom: 0;
 }
 
 h1 {  
@@ -116,6 +115,11 @@ a {
 }
 .navbar {
 	border-bottom: solid 3px $brand-secondary;
+		.container {
+			@include media-breakpoint-down(md) {
+		    		flex-direction: row-reverse;
+		    	}	
+		}
 		#navbarNavDropdown {
 		justify-content: flex-end;
 		#main-menu {
@@ -199,15 +203,28 @@ a {
     background-size: cover !important;
     background-position: center center !important;
     padding: 0;
+    position: relative;
     #heroHeader1 {
     position: absolute;
-    top: 25%;
+    top: auto;
     right: 0;
-    width: 50%;
+    width: 100%;
     padding: 15px;
     background-color: #1a92ba;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    text-align: center;
+    @include media-breakpoint-up(sm) {
+    	top: 15%;
+    	width: 80%;
+    	text-align: left;
+    	border-top-left-radius: 10px;
+    	border-bottom-left-radius: 10px;
+    }
+    @include media-breakpoint-up(lg) {
+    	width: 67.5%;
+    }
+    @include media-breakpoint-up(xl) {
+    	width: 50%;
+    	}
 	    h1, h5 {
 	    	color: #fff;
 	    	margin-bottom: 0;
@@ -221,14 +238,19 @@ a {
 	    position: absolute;
 	    right: 15%;
 	    top: 45%;
-	    width: 275px;
-	    height: 275px;
-	    border-radius: 138px;
+	    width: 200px;
+	    height: 200px;
+	    border-radius: 100px;
 	    display: flex;
 	    justify-content: center;
 	    align-items: center;
 	    text-align: center;
 	    padding: 10px;
+    	@include media-breakpoint-up(lg) {
+    		width: 250px;
+		    height: 250px;
+		    border-radius: 125px;
+    	}
 		    h3 {
 		    	color: #fff;
 		    	span {
@@ -240,17 +262,24 @@ a {
 	}
 }
 
-#joinUs {
+#joinUsWrapper {
 	padding: 15px;
 	@include gradient;
 	.row {
 		align-items: center;
 	}
-	button {
-		background-color: $brand-secondary;
-		color: #fff;
-		padding: 5px 20px;
+	#joinUs {
+		text-align: center;
+		@include media-breakpoint-up(md) {
+			text-align: left;
+    	}
+		button {
+			background-color: $brand-secondary;
+			color: #fff;
+			padding: 5px 20px;
+		}	
 	}
+	
 }
 
 #pressCarousel {
@@ -276,8 +305,18 @@ a {
 	#meetYourCoach {
 		padding-top: 50px;
 		padding-bottom: 50px;
-		h3 {
-			margin-bottom: 35px;
+		#coachVideo {
+			margin-bottom: 25px;
+			h3 {
+				margin-bottom: 35px;
+			}
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+    		}
+		}
+		
+		#getYourCopy {
+			white-space: normal;
 		}
 		#right {
 			font-size: 15px;
@@ -290,15 +329,25 @@ a {
 
 #testimonialSlider {
     .owl-stage {
+    	.owl-item {
+	    	@include media-breakpoint-only(xs) {
+				padding: 25px;
+	    	}	
+    	}
 		.owl-item:nth-of-type(odd) {
-			padding-right: 25px;
-			border-right: solid 3px $brand-primary;
+			@include media-breakpoint-up(sm) {
+				padding-right: 25px;
+				border-right: solid 3px $brand-primary;	
+			}
 		}
 		.owl-item:nth-of-type(even) {
-			padding-left: 25px;
+			@include media-breakpoint-up(sm) {
+				padding-left: 25px;
+			}
 		}
 	}
 }
+
 
 //ABOUT
 #aboutCopy {
@@ -631,8 +680,11 @@ a {
 /*--------------------[FORMS]-------------------*/
 /*------------------------------------------------*/
 #ctaForm {
-	padding: 50px;
+	padding: 50px 0;
 	@include gradient;
+	@include media-breakpoint-up(sm) {
+		padding: 50px;
+	}
 	h3 {
 	background: $brand-primary;
     border-top-left-radius: 10px;
@@ -700,7 +752,7 @@ a {
 #wrapper-footer {
 	background: $brand-primary;
 	color: #fff;
-	padding: 50px 0;
+	padding: 50px 0 25px;
 	h5 {
 		font-family: $body-font;
 		font-size: 1rem;
@@ -717,6 +769,9 @@ a {
 	}
 	#footer2 {
 		.footer_post {
+			@include media-breakpoint-down(lg) {
+				margin-bottom: 50px;
+			}
 			clear: both;
 			margin-bottom: 25px;
 			h6 {
@@ -759,10 +814,23 @@ a {
 			}
 		}
 	}
+
+	#footerCopy {
+		margin-top: 15px;
+		text-align: center;
+		a {
+			color: $brand-secondary;
+		}
+	}
 }
 /*------------------------------------------------*/
 /*--------------[RESPONSIVE/UTILITIES]------------*/
 /*------------------------------------------------*/
+// Extra small 575 and below
+// Small 576px and up
+// Medium 768 and up
+// Large 992px and up
+// Extra large devices - 1200px and up (large desktops, 1200px and up)
 
 @include media-breakpoint-up(xs) {  }
 @include media-breakpoint-up(sm) {  }
@@ -777,7 +845,7 @@ a {
 
 @include media-breakpoint-only(xs) {  }
 @include media-breakpoint-only(sm) {  }
-@include media-breakpoint-only(md) {  }
+@include media-breakpoint-only(sm) { }
 @include media-breakpoint-only(lg) {  }
 @include media-breakpoint-only(xl) {  }
 

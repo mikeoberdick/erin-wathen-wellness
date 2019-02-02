@@ -45,10 +45,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 							wp_reset_query(); ?>
 		</div><!-- #footer2 -->
 		
-		<div id = "footer3" class = "col-lg-">
+		<div id = "footer3" class = "col-lg-2">
 			<?php dynamic_sidebar('footer_3'); ?>
 		</div><!-- #footer3 -->
 	</div><!-- #footerWidgets -->
+
+	<div id = "footerCopy" class = "text-center mt-3">
+		&copy; <?php echo date('Y'); ?> <?php echo bloginfo('name'); ?><br/>
+		<div class = "small"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-and-conditions">Terms & Conditions</a></div>
+	</div>
 
 	</div><!-- .container -->
 

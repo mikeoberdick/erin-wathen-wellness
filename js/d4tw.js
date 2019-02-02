@@ -22,10 +22,18 @@ $('#pressSlider').owlCarousel({
 	//Empty object where we can store current item's index before drag
 var transient = {};
 $('#testimonialSlider').owlCarousel({
-	items: 2,
     slideBy: 'page',
+    responsive:{
+        0:{
+            items:1
+        },
+        576:{
+            items:2
+        }
+    },
     onDrag: onDrag.bind(transient),
     onDragged: onDragged.bind(transient),
+
 
 });
 
@@ -45,6 +53,9 @@ function onDragged(event) {
     owl.prev();
   }
 }
+
+//If we are on the video page
+if ( $( "#videoSlider" ).length ) {
 
 //Declare video as a global variable
 var video = {};
@@ -132,6 +143,7 @@ function loadMoreVids(event) {
 	);
 	} //end the conditional
 }
+} //end of if statement which conditionally loads the script on the video page
 
 //Load the first video into the featured player on page load
 $(window).on('load', function() {

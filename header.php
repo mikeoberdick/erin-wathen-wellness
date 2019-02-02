@@ -62,7 +62,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			
 		</div><!-- #topHeader -->
 
-		<nav class="navbar navbar-expand-md">
+		<nav class="navbar navbar-expand-lg">
 
 			<div class="container">
 

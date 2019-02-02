@@ -28,7 +28,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content/page', 'contact' );
 		} elseif ( is_page( 'press-and-media' ) ) {
 			get_template_part( 'template-parts/content/page', 'press' );
-		} elseif ( is_page( 'book' ) ) {
+		} elseif ( is_page( 'why-cant-i-stick-to-my-diet' ) ) {
 			get_template_part( 'template-parts/content/page', 'book' );
 		} elseif ( is_page( 'services' ) ) {
 			get_template_part( 'template-parts/content/page', 'services' );
@@ -40,7 +40,7 @@ get_header(); ?>
 	<?php endwhile; // end of the loop. ?>
 </main><!-- #main -->
 
-<?php if ( !is_front_page() && !is_page('contact') && !is_page('press') ) {
+<?php if ( !is_front_page() && !is_page('contact') && !is_page('press') && !is_page('privacy-policy') && !is_page('terms-and-conditions') ) {
 	get_template_part( 'template-parts/snippets/content', 'ctaForm' );
 } ?>
 

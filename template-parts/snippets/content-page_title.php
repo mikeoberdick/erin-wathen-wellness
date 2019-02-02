@@ -7,14 +7,14 @@
 	<?php } ?>
 	<div class="container-fluid p-0">
 		<div class="row">
-			<div class = "col-lg-4 titleWrapper">
+			<div class = "col-8 col-md-6 col-lg-4 titleWrapper">
 				<?php if ( get_field ('page_header') ) { ?>
-				<h3 class="pageTitle"><?php the_field('page_header'); ?></h3>
+				<h3 class="pageTitle mb-0"><?php the_field('page_header'); ?></h3>
 			<?php } elseif ( is_single() ) { ?>
-				<h3 class="pageTitle"><?php the_title(); ?></h3>
+				<h3 class="pageTitle mb-0"><?php the_title(); ?></h3>
 				<p class = "single_post_meta"><?php the_date(); ?></p>
 			<?php } else { ?>
-				<h3 class="pageTitle"><?php single_post_title(); ?></h3>
+				<h3 class="pageTitle mb-0"><?php single_post_title(); ?></h3>
 			<?php } ?>
 			</div><!-- .col-lg-4 .titleWrapper -->
 		</div><!-- .row -->

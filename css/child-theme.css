@@ -10795,8 +10795,7 @@ html {
 
 h1, h2, h3, h4, h5 {
   color: #1a92ba;
-  font-family: "Leckerli One", cursive;
-  margin-bottom: 0; }
+  font-family: "Leckerli One", cursive; }
 
 h1 {
   font-size: 2.0736rem; }
@@ -10894,6 +10893,12 @@ a {
 
 .navbar {
   border-bottom: solid 3px #adc01c; }
+  @media (max-width: 991.98px) {
+    .navbar .container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; } }
   .navbar #navbarNavDropdown {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -10963,16 +10968,29 @@ a {
   height: 600px;
   background-size: cover !important;
   background-position: center center !important;
-  padding: 0; }
+  padding: 0;
+  position: relative; }
   #hero #heroHeader1 {
     position: absolute;
-    top: 25%;
+    top: auto;
     right: 0;
-    width: 50%;
+    width: 100%;
     padding: 15px;
     background-color: #1a92ba;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px; }
+    text-align: center; }
+    @media (min-width: 576px) {
+      #hero #heroHeader1 {
+        top: 15%;
+        width: 80%;
+        text-align: left;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px; } }
+    @media (min-width: 992px) {
+      #hero #heroHeader1 {
+        width: 67.5%; } }
+    @media (min-width: 1200px) {
+      #hero #heroHeader1 {
+        width: 50%; } }
     #hero #heroHeader1 h1, #hero #heroHeader1 h5 {
       color: #fff;
       margin-bottom: 0; }
@@ -10983,9 +11001,9 @@ a {
     position: absolute;
     right: 15%;
     top: 45%;
-    width: 275px;
-    height: 275px;
-    border-radius: 138px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -10997,23 +11015,33 @@ a {
             align-items: center;
     text-align: center;
     padding: 10px; }
+    @media (min-width: 992px) {
+      #hero #heroHeader2 {
+        width: 250px;
+        height: 250px;
+        border-radius: 125px; } }
     #hero #heroHeader2 h3 {
       color: #fff; }
       #hero #heroHeader2 h3 span {
         font-size: 1.2rem;
         font-family: "Roboto", sans-serif; }
 
-#joinUs {
+#joinUsWrapper {
   padding: 15px;
   background: radial-gradient(circle farthest-side at center center, white 0%, rgba(26, 146, 186, 0.35) 100%); }
-  #joinUs .row {
+  #joinUsWrapper .row {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-  #joinUs button {
-    background-color: #adc01c;
-    color: #fff;
-    padding: 5px 20px; }
+  #joinUsWrapper #joinUs {
+    text-align: center; }
+    @media (min-width: 768px) {
+      #joinUsWrapper #joinUs {
+        text-align: left; } }
+    #joinUsWrapper #joinUs button {
+      background-color: #adc01c;
+      color: #fff;
+      padding: 5px 20px; }
 
 #pressCarousel h5 {
   font-family: "Roboto", sans-serif;
@@ -11037,19 +11065,32 @@ a {
   #meetYourCoachWrapper #meetYourCoach {
     padding-top: 50px;
     padding-bottom: 50px; }
-    #meetYourCoachWrapper #meetYourCoach h3 {
-      margin-bottom: 35px; }
+    #meetYourCoachWrapper #meetYourCoach #coachVideo {
+      margin-bottom: 25px; }
+      #meetYourCoachWrapper #meetYourCoach #coachVideo h3 {
+        margin-bottom: 35px; }
+      @media (min-width: 992px) {
+        #meetYourCoachWrapper #meetYourCoach #coachVideo {
+          margin-bottom: 0; } }
+    #meetYourCoachWrapper #meetYourCoach #getYourCopy {
+      white-space: normal; }
     #meetYourCoachWrapper #meetYourCoach #right {
       font-size: 15px; }
       #meetYourCoachWrapper #meetYourCoach #right i {
         color: #1a92ba; }
 
-#testimonialSlider .owl-stage .owl-item:nth-of-type(odd) {
-  padding-right: 25px;
-  border-right: solid 3px #1a92ba; }
+@media (max-width: 575.98px) {
+  #testimonialSlider .owl-stage .owl-item {
+    padding: 25px; } }
 
-#testimonialSlider .owl-stage .owl-item:nth-of-type(even) {
-  padding-left: 25px; }
+@media (min-width: 576px) {
+  #testimonialSlider .owl-stage .owl-item:nth-of-type(odd) {
+    padding-right: 25px;
+    border-right: solid 3px #1a92ba; } }
+
+@media (min-width: 576px) {
+  #testimonialSlider .owl-stage .owl-item:nth-of-type(even) {
+    padding-left: 25px; } }
 
 #aboutCopy img {
   border-radius: 10px; }
@@ -11342,8 +11383,11 @@ a {
 /*--------------------[FORMS]-------------------*/
 /*------------------------------------------------*/
 #ctaForm {
-  padding: 50px;
+  padding: 50px 0;
   background: radial-gradient(circle farthest-side at center center, white 0%, rgba(26, 146, 186, 0.35) 100%); }
+  @media (min-width: 576px) {
+    #ctaForm {
+      padding: 50px; } }
   #ctaForm h3 {
     background: #1a92ba;
     border-top-left-radius: 10px;
@@ -11402,7 +11446,7 @@ a {
 #wrapper-footer {
   background: #1a92ba;
   color: #fff;
-  padding: 50px 0; }
+  padding: 50px 0 25px; }
   #wrapper-footer h5 {
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
@@ -11416,6 +11460,9 @@ a {
   #wrapper-footer #footer2 .footer_post {
     clear: both;
     margin-bottom: 25px; }
+    @media (max-width: 1199.98px) {
+      #wrapper-footer #footer2 .footer_post {
+        margin-bottom: 50px; } }
     #wrapper-footer #footer2 .footer_post h6 {
       color: #fff; }
     #wrapper-footer #footer2 .footer_post a {
@@ -11438,6 +11485,11 @@ a {
         font-size: 12px; }
         #wrapper-footer ul li a:hover {
           text-decoration: none; }
+  #wrapper-footer #footerCopy {
+    margin-top: 15px;
+    text-align: center; }
+    #wrapper-footer #footerCopy a {
+      color: #adc01c; }
 
 /*------------------------------------------------*/
 /*--------------[RESPONSIVE/UTILITIES]------------*/

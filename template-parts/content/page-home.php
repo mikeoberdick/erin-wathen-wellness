@@ -8,17 +8,17 @@
 	</div>
 </div><!-- .container-fluid -->
 
-<div id = "joinUs" class="container-fluid mb-5">
+<div id = "joinUsWrapper" class="container-fluid mb-5">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-10"><h4>Look and Feel Fabulous in 2019.  Join my Group Coaching Program!</h4></div>
-			<div class="col-lg-2">
+		<div id = "joinUs" class="row">
+			<div class="col-sm-8 col-lg-10"><h4>Look and Feel Fabulous in 2019.  Join my Group Coaching Program!</h4></div>
+			<div class="col-sm-4 col-lg-2">
 				<a href = '<?php echo bloginfo('url'); ?>/contact'>
 					<button role = 'button' class = 'btn btn-primary'>
 						Join Us!
 					</button>
 				</a>
-			</div><!-- .col-lg-2 -->
+			</div><!-- .col-2 -->
 		</div><!-- .row -->
 	</div><!-- .container -->
 </div><!-- .container-fluid -->
@@ -53,7 +53,7 @@
 <section id = "meetYourCoachWrapper" class="container-fluid mb-5">
 		<div id = "meetYourCoach" class="container">
 			<div class="row">
-				<div id = "left" class="col-lg-5">
+				<div id = "coachVideo" class="col-lg-5">
 					<h3>Meet Your Coach</h3>
 					<div class = "embed-responsive embed-responsive-16by9">
 						<?php the_field('meet_your_coach_video'); ?>	
@@ -65,7 +65,7 @@
 						<div class="col-sm-4">
 							<img class = "mb-4" src="<?php echo get_stylesheet_directory_uri(); ?>/img/book.png" alt="Why Can't I Stick to my Diet?">
 							<a href = '<?php echo bloginfo('url'); ?>/book'>
-								<button role = 'button' class = 'btn btn-primary'>Get Your Copy!</button>
+								<button role = 'button' id = "getYourCopy" class = 'btn btn-primary'>Get Your Copy!</button>
 							</a>
 						</div><!-- .col-sm-4 -->
 						<div id = "right" class="col-sm-8">
