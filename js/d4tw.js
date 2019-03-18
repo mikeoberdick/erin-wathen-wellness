@@ -5,7 +5,17 @@ $('#js-heightControl').css('height', $(window).height() - $('html').height() +'p
 
 //Homepage Press Slider
 $('#pressSlider').owlCarousel({
-	items: 5,
+	responsive:{
+        0:{
+            items:3
+        },
+        576:{
+            items:4
+        },
+        992:{
+            items:5
+        }
+    },
 	margin: 25,
 	loop: true,
 	dots: false,
@@ -19,10 +29,11 @@ $('#pressSlider').owlCarousel({
 });
 
 //Homepage Testimonial Slider
-	//Empty object where we can store current item's index before drag
+//Empty object where we can store current item's index before drag
 var transient = {};
 $('#testimonialSlider').owlCarousel({
     slideBy: 'page',
+    autoHeight:true,
     responsive:{
         0:{
             items:1
@@ -100,10 +111,20 @@ var video = {};
 //Video page YouTube video carousel
 var owl = $('#videoSlider');
 owl.owlCarousel({
-	items: 4,
 	margin: 25,
 	nav: true,
 	dots: false,
+    responsive:{
+	    0:{
+	        items:2
+	    },
+	    992:{
+	        items:3
+	    },
+	    1200:{
+	    	items:4
+	    },
+	},
 	navElement: 'div',
 	navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>","<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
 	onTranslated: loadMoreVids
@@ -158,5 +179,19 @@ $(window).on('load', function() {
     $("#featuredVideo > iframe").attr("src","https://www.youtube.com/embed/"+id+"?rel=&autoplay=1");
 	});
 
+//Add fixed class to nav on page scroll
+$(function() {
+    //cache the header element
+    var nav = $(".wrapper-navbar");
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 45) {
+            nav.addClass('fixed');
+        } else {
+            nav.removeClass('fixed');
+        }
+    });
 });
 
+});

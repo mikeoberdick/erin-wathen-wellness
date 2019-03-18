@@ -20,14 +20,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri() . '/favicons/apple-touch-icon.png';?>">
-	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri() . '/favicons/favicon-32x32.png';?>">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri() . '/favicons/favicon-16x16.png';?>">
-	<link rel="manifest" href="<?php echo get_stylesheet_directory_uri() . '/favicons/manifest.json';?>">
-	<link rel="mask-icon" href="<?php echo get_stylesheet_directory_uri() . '/favicons/safari-pinned-tab.svg';?>" color="#334396">
-	<meta name="apple-mobile-web-app-title" content="Silver Mill Tours">
-	<meta name="application-name" content="Silver Mill Tours">
-	<meta name="msapplication-TileColor" content="#2d89ef">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
 	<?php wp_head(); ?>
@@ -37,32 +35,32 @@ $container = get_theme_mod( 'understrap_container_type' );
 <body <?php body_class(); ?>>
 
 <div class="hfeed site" id="page">
+<div id="topHeader">
+	<div class="container">
+		<div class="row">
+			<span id = "phone"><a href = "tel:844-513-3997"><i class="fa fa-phone" aria-hidden="true"></i><?php the_field('phone_number', 'option'); ?></a></span>
+			<div>
+				<ul id="links" class = "list-unstyled">
+					<li><a target = "_blank" href = "mailto:<?php the_field('email', 'option'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('facebook', 'option'); ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('twitter', 'option'); ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('instagram', 'option'); ?>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('youtube', 'option'); ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('pinterest', 'option'); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a target = "_blank" href = "<?php the_field('linked_in', 'option'); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div><!-- .row -->	
+	</div>
+</div><!-- #topHeader -->
 
 	<!-- ******************* The Navbar Area ******************* -->
 	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
-		<div id="topHeader">
-			<div class="container">
-				<div class="row">
-					<span id = "phone"><a href = "tel:844-513-3997"><i class="fa fa-phone" aria-hidden="true"></i></a><?php the_field('phone_number', 'option'); ?></span>
-					<div>
-						<ul id="links" class = "list-unstyled">
-							<li><a target = "_blank" href = "mailto:<?php the_field('email', 'option'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('facebook', 'option'); ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('twitter', 'option'); ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('instagram', 'option'); ?>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('youtube', 'option'); ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('pinterest', 'option'); ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-							<li><a target = "_blank" href = "<?php the_field('linked_in', 'option'); ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div><!-- .row -->	
-			</div>
-			
-		</div><!-- #topHeader -->
 
-		<nav class="navbar navbar-expand-lg">
+
+		<nav class="navbar navbar-expand-md">
 
 			<div class="container">
 

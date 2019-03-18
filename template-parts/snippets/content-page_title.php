@@ -7,7 +7,7 @@
 	<?php } ?>
 	<div class="container-fluid p-0">
 		<div class="row">
-			<div class = "col-8 col-md-6 col-lg-4 titleWrapper">
+			<div class = "col-4 titleWrapper">
 				<?php if ( get_field ('page_header') ) { ?>
 				<h3 class="pageTitle mb-0"><?php the_field('page_header'); ?></h3>
 			<?php } elseif ( is_single() ) { ?>

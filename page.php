@@ -10,11 +10,11 @@
  */
 
 get_header(); ?>
-
+<div class="wrapper" id="page-wrapper">
 <?php get_template_part( 'template-parts/snippets/content', 'page_title' ) ?>
 <?php get_template_part( 'template-parts/snippets/content', 'breadcrumbs' ) ?>
 
-<main class="site-main" id="main">
+	<main class="site-main" id="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
 
@@ -38,7 +38,8 @@ get_header(); ?>
 
 		?>
 	<?php endwhile; // end of the loop. ?>
-</main><!-- #main -->
+	</main><!-- #main -->
+</div><!-- .wrapper -->
 
 <?php if ( !is_front_page() && !is_page('contact') && !is_page('press') && !is_page('privacy-policy') && !is_page('terms-and-conditions') ) {
 	get_template_part( 'template-parts/snippets/content', 'ctaForm' );

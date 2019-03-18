@@ -1,14 +1,18 @@
 <section id = "bookOverview" class = "mb-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="d-none d-lg-block col-lg-4">
 				<div id="bookImage">
-					<img src="<?php the_field('book_image'); ?>" alt="Why Can't I Stick to my Diet?"></img>
+					<?php $book = get_field('book_image'); 
+						$size = 'medium';
+						$thumb = $book['sizes'][ $size ];?>
+					<img src="<?php echo $book['url']; ?>" alt="Why Can't I Stick to my Diet?"></img>
 					
 				</div><!-- #bookImage -->
 			</div><!-- col-lg-4 -->
 			<div id = "bookDetails" class="col-lg-8 mb-5">
 				<h3 class = "mb-3">The Definitive Anti-Diet Guide!</h3>
+				<img class = "d-block d-lg-none float-left pr-3 pb-3" src="<?php echo $thumb; ?>" alt="Why Can't I Stick to my Diet?"></img>
 				<?php the_field('book_details'); ?>
 				<div id = "buttons" class = "text-center">
 					<a class = "button" target = "_blank" href="https://www.amazon.com/Why-Cant-Stick-My-Diet-ebook/dp/B07DLNZ8P6"><img  src="<?php echo get_stylesheet_directory_uri(); ?>/img/amazon.png" /></a>

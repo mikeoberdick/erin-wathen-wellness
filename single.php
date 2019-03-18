@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header(); ?>
-
+<div class="wrapper" id="page-wrapper">
 <?php get_template_part( 'template-parts/snippets/content', 'page_title' ) ?>
 <?php get_template_part( 'template-parts/snippets/content', 'breadcrumbs' ) ?>
 

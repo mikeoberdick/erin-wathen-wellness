@@ -13,37 +13,35 @@
 <section id = "pressPosts" class = "mb-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
-					<?php
-	// Display Press CPT
+	<?php //Display Press CPT
 			if ( get_query_var('paged') ) $paged = get_query_var('paged');
 			if ( get_query_var('page') ) $paged = get_query_var('page');
 
 			$query = new WP_Query( array( 'post_type' => 'press', 'posts_per_page'   => -1, 'order' => 'ASC', 'orderby' => 'menu_order', 'paged' => $paged ) ); ?>
-			<div class="card-deck">
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 				
-				  <div class="card text-center">
+				  <div class="col-lg-4 col-md-6 text-center lazy">
+				  	<div class="press-card">
 				  		<div class = "cardTop">
-				  			<?php $terms = get_the_terms( $post->ID , 'press-category' ); ?>
-							<?php foreach ( $terms as $term ) { ?>
-								<?php the_field('icon', $term); ?>
-									<span class = "mb-3 text-uppercase d-block">
-				   						<?php echo $term->name; ?>
-				   					</span>
-								<?php } ?>
-				  		</div>
-				  		<a href="<?php the_field('link'); ?>">
-				    	<div class="card-body" style = "background: url('<?php the_post_thumbnail_url('medium'); ?>')">
-				      	<h3 class="card-title"><?php the_title(); ?></h3>
-				    	</div><!-- .card-body -->
-				    </a>
-				  </div><!-- .card -->
+					  			<?php $terms = get_the_terms( $post->ID , 'press-category' ); ?>
+								<?php foreach ( $terms as $term ) { ?>
+									<?php the_field('icon', $term); ?>
+										<span class = "mb-3 text-uppercase d-block">
+					   						<?php echo $term->name; ?>
+					   					</span>
+									<?php } ?>
+					  		</div>
+					  		<a href="<?php the_field('link'); ?>">
+					    		<div class="card-body" style = "background: url('<?php the_post_thumbnail_url('medium'); ?>')">
+					      		<h3 class="card-title"><?php the_title(); ?></h3>
+					      		<div id = "press-link"><i class="fa fa-link" aria-hidden="true"></i></div>
+					    		</div><!-- .card-body -->
+					    	</a>
+					  	</div>
+				  </div><!-- .col-4 -->
 			<?php endwhile;
 			wp_reset_postdata();
 			endif; ?>
-			</div><!-- .card-deck -->
-		</div>
-	</div>
-</div>
+		</div><!-- .row -->
+	</div><!-- .container -->
 </section>

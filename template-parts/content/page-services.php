@@ -13,7 +13,7 @@
 				</div>
 				
 			</div><!-- col-lg-8 -->
-			<div class="col-lg-4">
+			<div id = "specials" class="col-lg-4">
 				<h3 class = "mb-3 text-center">Current Specials</h3>
 			<?php if( have_rows('packages') ): while( have_rows('packages') ): the_row(); ?>
 				<?php  
